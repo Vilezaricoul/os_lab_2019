@@ -1,15 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
-echo There were $# parameters.
+echo "Count" $#
+echo "Args" $@
 
-count=0
-sum=0
-
-for param in $(cat $1)
+avg=0
+for c in "$@"
 do
-sum=$(($sum+param))
-count=$((count+1))
+    avg=$((avg+$c))
 done
 
-result=$((sum/count))
-echo "Ans = $result"
+echo "Average" $((avg/$#))
